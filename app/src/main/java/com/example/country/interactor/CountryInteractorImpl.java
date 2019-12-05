@@ -1,14 +1,13 @@
 package com.example.country.interactor;
 
 import android.content.Context;
-import android.util.Log;
 
+import com.example.country.R;
 import com.example.country.helper.NetworkUtil;
 import com.example.country.model.CountryDetails;
 import com.example.country.rest.ApiConstants;
 import com.example.country.rest.ApiHelper;
 import com.example.country.rest.RestClient;
-import com.google.gson.Gson;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -27,7 +26,6 @@ public class CountryInteractorImpl implements CountryInteractor {
                 @Override
                 public void onResponse(Call<CountryDetails> call, Response<CountryDetails> response) {
                     listener.onSuccess(context,response.body());
-                    Log.d("data",new Gson().toJson(response.body()));
                 }
 
                 @Override
@@ -40,7 +38,8 @@ public class CountryInteractorImpl implements CountryInteractor {
         }
         else
         {
-            //no internet
+            NetworkUtil.showNetworkDialog(context,context.getResources().getString(R.string.no_internet),
+                    context.getResources().getString(R.string.alert));
         }
 
 

@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Country</string>
     <string name="please_wait">Please wait..</string>
+    <string name="title">Title</string>
+    <string name="desc">Description</string>
+    <string name="refrence_img">Refrence image</string>
+    <string name="no_internet">No internet connection.</string>
+    <string name="alert">Alert</string>
+    <string name="refresh">Refresh</string>
+    <string name="toolbar_title">Title</string>
 </resources>

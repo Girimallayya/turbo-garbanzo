@@ -26,7 +26,7 @@ public class CountryPresenterImpl implements CountryPresenter,CountryInteractor.
 
     @Override
     public void onSuccess(Context context, CountryDetails countryDetails) {
-        countryView.getFactsData();
+        countryView.getFactsData(countryDetails);
     }
 
     @Override
