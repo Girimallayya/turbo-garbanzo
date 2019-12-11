@@ -18,27 +18,24 @@ public class CountryInteractorImpl implements CountryInteractor {
     @Override
     public void factsData(final Context context, final onFcatsDataListener listener) {
 
-        if(NetworkUtil.isOnline(context))
-        {
+        if (NetworkUtil.isOnline(context)) {
             ApiHelper apiHelper = new ApiHelper.Builder().endPoint(ApiConstants.GET_FACTS).build();
             Call<CountryDetails> countryDetailsCall = RestClient.get().getCountryData(apiHelper.getFinalUrl());
             countryDetailsCall.enqueue(new Callback<CountryDetails>() {
                 @Override
                 public void onResponse(Call<CountryDetails> call, Response<CountryDetails> response) {
-                    listener.onSuccess(context,response.body());
+                    listener.onSuccess(context, response.body());
                 }
 
                 @Override
                 public void onFailure(Call<CountryDetails> call, Throwable t) {
-                  listener.onError(t.getMessage());
+                    listener.onError(t.getMessage());
                 }
             });
 
 
-        }
-        else
-        {
-            NetworkUtil.showNetworkDialog(context,context.getResources().getString(R.string.no_internet),
+        } else {
+            NetworkUtil.showNetworkDialog(context, context.getResources().getString(R.string.no_internet),
                     context.getResources().getString(R.string.alert));
         }
 

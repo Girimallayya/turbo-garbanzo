@@ -7,13 +7,12 @@ import com.example.country.interactor.CountryInteractorImpl;
 import com.example.country.model.CountryDetails;
 import com.example.country.views.CountryView;
 
-public class CountryPresenterImpl implements CountryPresenter,CountryInteractor.onFcatsDataListener {
+public class CountryPresenterImpl implements CountryPresenter, CountryInteractor.onFcatsDataListener {
     private CountryView countryView;
     private CountryInteractor countryInteractor;
 
 
-    public CountryPresenterImpl(CountryView countryView)
-    {
+    public CountryPresenterImpl(CountryView countryView) {
         this.countryView = countryView;
         this.countryInteractor = new CountryInteractorImpl();
     }
@@ -21,7 +20,7 @@ public class CountryPresenterImpl implements CountryPresenter,CountryInteractor.
 
     @Override
     public void getFactsData(Context context) {
-      countryInteractor.factsData(context,this);
+        countryInteractor.factsData(context, this);
     }
 
     @Override
@@ -31,6 +30,6 @@ public class CountryPresenterImpl implements CountryPresenter,CountryInteractor.
 
     @Override
     public void onError(String message) {
-      countryView.hideProgress();
+        countryView.hideProgress();
     }
 }

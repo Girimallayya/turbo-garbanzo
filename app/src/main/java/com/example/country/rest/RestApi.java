@@ -9,5 +9,5 @@ import retrofit2.http.Url;
 public interface RestApi {
 
     @GET
-    Call<CountryDetails>getCountryData(@Url String iUrl);
+    Call<CountryDetails> getCountryData(@Url String iUrl);
 }

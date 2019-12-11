@@ -6,9 +6,9 @@ import com.example.country.model.CountryDetails;
 
 public interface CountryInteractor {
 
-    void factsData(Context context,onFcatsDataListener listener);
+    void factsData(Context context, onFcatsDataListener listener);
 
-    interface onFcatsDataListener{
+    interface onFcatsDataListener {
 
         void onSuccess(Context context, CountryDetails countryDetails);
 

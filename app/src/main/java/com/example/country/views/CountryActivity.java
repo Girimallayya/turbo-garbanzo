@@ -20,7 +20,7 @@ import com.example.country.views.adapter.FactsAdapter;
 
 import java.util.List;
 
-public class CountryActivity extends AppCompatActivity implements CountryView{
+public class CountryActivity extends AppCompatActivity implements CountryView {
 
     private ProgressDialog progressDialog;
     private CountryPresenter countryPresenter;
@@ -34,9 +34,9 @@ public class CountryActivity extends AppCompatActivity implements CountryView{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        recyclerView = (RecyclerView)findViewById(R.id.recycler_view);
-        textTitle =(TextView)findViewById(R.id.action_title);
-        imgRefresh =(ImageView)findViewById(R.id.action_refresh);
+        recyclerView = findViewById(R.id.recycler_view);
+        textTitle = findViewById(R.id.action_title);
+        imgRefresh = findViewById(R.id.action_refresh);
 
         countryPresenter = new CountryPresenterImpl(this);
         CallFactsApi();
@@ -50,14 +50,11 @@ public class CountryActivity extends AppCompatActivity implements CountryView{
     }
 
     private void CallFactsApi() {
-        if(NetworkUtil.isOnline(CountryActivity.this))
-        {
+        if (NetworkUtil.isOnline(CountryActivity.this)) {
             showProgress();
             countryPresenter.getFactsData(CountryActivity.this);
-        }
-        else
-        {
-            NetworkUtil.showNetworkDialog(CountryActivity.this,getResources().getString(R.string.no_internet),
+        } else {
+            NetworkUtil.showNetworkDialog(CountryActivity.this, getResources().getString(R.string.no_internet),
                     getResources().getString(R.string.alert));
         }
     }
@@ -74,8 +71,7 @@ public class CountryActivity extends AppCompatActivity implements CountryView{
 
     @Override
     public void hideProgress() {
-        if(progressDialog != null && progressDialog.isShowing())
-        {
+        if (progressDialog != null && progressDialog.isShowing()) {
             progressDialog.dismiss();
         }
 
@@ -83,16 +79,14 @@ public class CountryActivity extends AppCompatActivity implements CountryView{
 
     @Override
     public void getFactsData(CountryDetails countryDetails) {
-       hideProgress();
-       if(countryDetails!=null && countryDetails.getRows().size()>0) {
-           factsList = countryDetails.getRows();
-           textTitle.setText(countryDetails.getTitle());
-           recyclerView.setLayoutManager(new LinearLayoutManager(CountryActivity.this));
-           FactsAdapter factsAdapter = new FactsAdapter(CountryActivity.this, factsList);
-           recyclerView.setAdapter(factsAdapter);
-       }
+        hideProgress();
+        if (countryDetails != null && countryDetails.getRows().size() > 0) {
+            factsList = countryDetails.getRows();
+            textTitle.setText(countryDetails.getTitle());
+            recyclerView.setLayoutManager(new LinearLayoutManager(CountryActivity.this));
+            FactsAdapter factsAdapter = new FactsAdapter(CountryActivity.this, factsList);
+            recyclerView.setAdapter(factsAdapter);
+        }
     }
-
-
 
 }

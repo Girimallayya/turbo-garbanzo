@@ -11,8 +11,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RestClient {
     private static RestApi restApi;
 
-    static
-    {
+    static {
         setupRestClient();
     }
 
@@ -33,8 +32,7 @@ public class RestClient {
         return GsonConverterFactory.create(gson);
     }
 
-    public static RestApi get()
-    {
+    public static RestApi get() {
         return restApi;
     }
 }

@@ -8,32 +8,32 @@
         android:id="@+id/text_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorBlue"
         android:layout_margin="@dimen/common_dimen_5"
-        android:textSize="@dimen/common_text_20sp"
-        android:text="@string/title" />
+        android:text="@string/title"
+        android:textColor="@color/colorBlue"
+        android:textSize="@dimen/common_text_20sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_below="@+id/text_title"
         android:layout_margin="@dimen/common_dimen_5"
+        android:orientation="horizontal"
         android:weightSum="4">
 
         <TextView
+            android:id="@+id/text_desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/text_desc"
             android:layout_weight="1"
             android:text="@string/desc">
 
         </TextView>
 
         <ImageView
+            android:id="@+id/ref_img"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/ref_img"
             android:layout_weight="3"
             android:contentDescription="@string/refrence_img"
             android:src="@drawable/ic_launcher_background">
